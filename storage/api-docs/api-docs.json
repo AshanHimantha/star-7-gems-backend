@@ -10,8 +10,8 @@
     },
     "servers": [
         {
-            "url": "http://localhost:8000/api",
-            "description": "Local Development Server"
+            "url": "http://my-default-host.com",
+            "description": "API Server"
         }
     ],
     "paths": {
@@ -146,8 +146,29 @@
                                 }
                             }
                         }
+                    },
+                    "401": {
+                        "description": "Unauthenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/login": {

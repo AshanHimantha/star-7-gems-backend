@@ -201,6 +201,7 @@ php artisan test tests/Feature/SeederTest.php
 - `README_AUTH_SETUP.md` - Sanctum & Swagger setup guide
 - `API_DOCUMENTATION.md` - Detailed API reference
 - `SANCTUM_CONFIGURATION.md` - SPA authentication setup
+- `SWAGGER_CONFIGURATION.md` - Swagger deployment configuration
 - `ERROR_HANDLING_SUMMARY.md` - Error handling implementation
 - `TEST_RESULTS.md` - Test suite documentation
 - `PRODUCT_SYSTEM_DOCS.md` - Product system overview
@@ -238,11 +239,15 @@ php artisan db:seed
 1. Set `APP_ENV=production` in `.env`
 2. Set `APP_DEBUG=false`
 3. Update `SANCTUM_STATEFUL_DOMAINS` with production domains
-4. Configure proper database credentials
-5. Run migrations: `php artisan migrate --force`
-6. Optimize: `php artisan optimize`
-7. Cache config: `php artisan config:cache`
-8. Cache routes: `php artisan route:cache`
+4. **Update `L5_SWAGGER_CONST_HOST`** with production API URL (e.g., `https://your-domain.com/api`)
+5. Configure proper database credentials
+6. Run migrations: `php artisan migrate --force`
+7. Regenerate Swagger docs: `php artisan l5-swagger:generate`
+8. Optimize: `php artisan optimize`
+9. Cache config: `php artisan config:cache`
+10. Cache routes: `php artisan route:cache`
+
+> 📘 **Note:** See `Docs/SWAGGER_CONFIGURATION.md` for detailed Swagger setup instructions.
 
 ## 🤝 Contributing
 
