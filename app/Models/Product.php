@@ -19,7 +19,6 @@ class Product extends Model
         'color_id',
         'shape_id',
         'price',
-        'stock',
         'weight',
         'weight_unit',
         'purity',
@@ -33,7 +32,6 @@ class Product extends Model
     protected $casts = [
         'price' => 'decimal:2',
         'weight' => 'decimal:2',
-        'stock' => 'integer',
         'is_active' => 'boolean',
         'is_featured' => 'boolean',
     ];

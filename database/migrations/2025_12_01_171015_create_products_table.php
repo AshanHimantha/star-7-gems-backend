@@ -25,7 +25,6 @@ return new class extends Migration
             
             // Product Details
             $table->decimal('price', 10, 2);
-            $table->integer('stock')->default(0);
             $table->decimal('weight', 8, 2)->nullable(); // in grams or carats
             $table->string('weight_unit')->default('grams'); // grams, carats, etc.
             $table->string('purity')->nullable(); // e.g., 24K, 18K, 92.5%, etc.

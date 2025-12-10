@@ -78,7 +78,6 @@ The `/api/products` endpoint supports extensive filtering:
   "sku": "BSR-001",
   "description": "Elegant 18K gold ring...",
   "price": 299.99,
-  "stock": 10,
   "weight": 2.5,
   "weight_unit": "grams",
   "purity": "18K",
