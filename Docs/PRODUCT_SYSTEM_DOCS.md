@@ -55,7 +55,7 @@ The Star 7 Gems backend now includes a complete Product Management System with t
 | POST | `/api/products/{id}` | ✅ | Update product (Multipart) |
 | DELETE | `/api/products/{id}` | ✅ | Delete product |
 
-> **Note:** For updating products via API, use `POST` with `_method=PUT` field because PHP/Laravel has limitations handling `PUT` requests with `multipart/form-data`.
+> **Note:** The update endpoint uses `POST` method directly (not PUT) because PHP/Laravel has limitations handling `PUT` requests with `multipart/form-data` (required for image uploads). No `_method` field is needed.
 
 ## 🔍 Filtering & Search
 The `/api/products` endpoint supports extensive filtering:

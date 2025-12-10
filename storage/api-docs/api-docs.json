@@ -975,6 +975,7 @@
                     "Products"
                 ],
                 "summary": "Update a product",
+                "description": "Update a product using POST method (required for multipart/form-data with images)",
                 "operationId": "3599c897e9362a2230d69535e69ef3b2",
                 "parameters": [
                     {
@@ -992,10 +993,6 @@
                         "multipart/form-data": {
                             "schema": {
                                 "properties": {
-                                    "_method": {
-                                        "type": "string",
-                                        "example": "PUT"
-                                    },
                                     "name": {
                                         "type": "string"
                                     },
@@ -1042,9 +1039,11 @@
                                         "format": "binary"
                                     },
                                     "is_active": {
+                                        "description": "Accepts: true, false, 1, 0",
                                         "type": "boolean"
                                     },
                                     "is_featured": {
+                                        "description": "Accepts: true, false, 1, 0",
                                         "type": "boolean"
                                     }
                                 },

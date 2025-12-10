@@ -193,6 +193,7 @@ class ProductController extends Controller
      * @OA\Post(
      *     path="/products/{id}",
      *     summary="Update a product",
+     *     description="Update a product using POST method (required for multipart/form-data with images)",
      *     tags={"Products"},
      *     security={{"bearerAuth":{}}},
      *     @OA\Parameter(name="id", in="path", required=true, @OA\Schema(type="integer")),
@@ -201,7 +202,6 @@ class ProductController extends Controller
      *         @OA\MediaType(
      *             mediaType="multipart/form-data",
      *             @OA\Schema(
-     *                 @OA\Property(property="_method", type="string", example="PUT"),
      *                 @OA\Property(property="name", type="string"),
      *                 @OA\Property(property="sku", type="string"),
      *                 @OA\Property(property="description", type="string"),
@@ -216,8 +216,8 @@ class ProductController extends Controller
      *                 @OA\Property(property="image_1", type="string", format="binary"),
      *                 @OA\Property(property="image_2", type="string", format="binary"),
      *                 @OA\Property(property="image_3", type="string", format="binary"),
-     *                 @OA\Property(property="is_active", type="boolean"),
-     *                 @OA\Property(property="is_featured", type="boolean")
+     *                 @OA\Property(property="is_active", type="boolean", description="Accepts: true, false, 1, 0"),
+     *                 @OA\Property(property="is_featured", type="boolean", description="Accepts: true, false, 1, 0")
      *             )
      *         )
      *     ),
