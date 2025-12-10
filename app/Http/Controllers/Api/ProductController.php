@@ -133,9 +133,17 @@ class ProductController extends Controller
                 'image_1' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
                 'image_2' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
                 'image_3' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-                'is_active' => 'boolean',
-                'is_featured' => 'boolean',
+                'is_active' => 'sometimes|in:0,1,true,false',
+                'is_featured' => 'sometimes|in:0,1,true,false',
             ]);
+
+            // Convert string booleans to actual booleans
+            if (isset($validated['is_active'])) {
+                $validated['is_active'] = filter_var($validated['is_active'], FILTER_VALIDATE_BOOLEAN);
+            }
+            if (isset($validated['is_featured'])) {
+                $validated['is_featured'] = filter_var($validated['is_featured'], FILTER_VALIDATE_BOOLEAN);
+            }
 
             // Handle image uploads
             foreach (['image_1', 'image_2', 'image_3'] as $imageField) {
@@ -236,9 +244,17 @@ class ProductController extends Controller
                 'image_1' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
                 'image_2' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
                 'image_3' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-                'is_active' => 'boolean',
-                'is_featured' => 'boolean',
+                'is_active' => 'sometimes|in:0,1,true,false',
+                'is_featured' => 'sometimes|in:0,1,true,false',
             ]);
+
+            // Convert string booleans to actual booleans
+            if (isset($validated['is_active'])) {
+                $validated['is_active'] = filter_var($validated['is_active'], FILTER_VALIDATE_BOOLEAN);
+            }
+            if (isset($validated['is_featured'])) {
+                $validated['is_featured'] = filter_var($validated['is_featured'], FILTER_VALIDATE_BOOLEAN);
+            }
 
             // Handle image uploads
             foreach (['image_1', 'image_2', 'image_3'] as $imageField) {
